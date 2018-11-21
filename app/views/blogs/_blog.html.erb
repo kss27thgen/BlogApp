@@ -1,17 +1,16 @@
 <div class="contents">
   <% @blogs.each do |blog|%>
     <div class="content">
-      <div class="upper-part clearfix">
-        <div class="title">
-          <p>タイトル：<%= blog.title%></p>
-        </div>
-        <div class="name">
-          <%= blog.user.name %>
-        </div>
-        </div>
+      <ul class="upper-part clearfix">
+          <li class="title">title：<%= blog.title %></li>
+          <li class="edit"> 編集 </li>
+          <li class="delete"> 削除 </li>
+      </ul>
+      <h6 class="name"> Written by :<%= blog.user.name %> </h6>
       <div class="text">
         <%= blog.text%>
       </div>
     </div>
   <% end %>
 </div>
+
