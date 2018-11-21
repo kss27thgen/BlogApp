@@ -1,0 +1,40 @@
+body, html {
+  height: 100%;
+  background-color: white;
+}
+
+h1, h2, h3, h4, h5, h6, p, body {
+  font-size: 18px;
+  color: #4a4a4a;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.clearfix:after{
+  display: block;
+  content: "";
+  clear: both;
+}
+
+
+
+
+
+.content{
+  border: solid black 1px;
+}
+
+.title{
+  font-weight: bold;
+  float: left;
+  color: red;
+}
+
+.name{
+  float:right
+}
+
+
