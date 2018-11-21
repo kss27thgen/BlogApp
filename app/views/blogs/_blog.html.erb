@@ -3,8 +3,8 @@
     <div class="content">
       <ul class="upper-part clearfix">
           <li class="title">title：<%= blog.title %></li>
-          <li class="edit"> 編集 </li>
-          <li class="delete"> 削除 </li>
+          <li class="edit"><%= link_to "編集", edit_blog_path(blog) %></li>
+          <li class="delete"><%=link_to "削除", "/blogs/#{blog.id}", method: :delete %></li>
       </ul>
       <h6 class="name"> Written by :<%= blog.user.name %> </h6>
       <div class="text">
