@@ -1,0 +1,10 @@
+<div class="container">
+  <h3 class="title">編集する</h3>
+  <%= form_for(@blog) do |f| %>
+  <div class="form">
+    <%= f.text_field :title %>
+    <%= f.text_area :text %>  <!-- TODOサイズ広げたい -->
+  </div>
+  <%= f.submit %>
+  <% end %>
+</div>
