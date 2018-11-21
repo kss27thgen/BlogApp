@@ -22,19 +22,24 @@ h1, h2, h3, h4, h5, h6, p, body {
 
 
 .contents {
+  width: 80%;
+  margin: 0 auto;
   .content {
     border: dashed black 1px;
-    min-height: 150px;
+    min-height: 120px;
+    margin: 80px 0;
     .upper-part{
       width: 100%;
       padding: 3px 10px;
       margin: 0;
       li {
         float: left;
+        padding-right: 5px;
       }
       .title {
         font-weight: bold;
         color: red;
+        padding-right: 30px;
       }
       .edit{
       }
