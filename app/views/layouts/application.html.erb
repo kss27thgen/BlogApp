@@ -28,14 +28,28 @@
       <% end %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <%if current_user %>
-          <li><%= link_to current_user.name, "/users/#{current_user.id}" %></li>
-          <li><%= link_to "投稿する","/blogs/new"%></li>
-          <li><%= link_to "ログアウト"," /users/sign_out",method: :delete%></li>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <button type="button" class="btn btn-outline-primary"><%=current_user.name%></button>
+            <% end %>
+          </li>
+          <li>
+            <a class="btn btn-floating btn-large cyan pulse" href="/blogs/new"><i class="material-icons">投稿</i></a>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <button type="button" class="btn btn btn-outline-primary">ログアウト</button>
+            <% end %>
+          </li>
         <% else %>
-          <li><a href="/users/sign_in">ログイン</a></li>
-          <li><a href="/users/sign_up">新規登録</a></li>
+          <li>
+            <a class="btn btn btn-outline-primary" href="/users/sign_in">ログイン</a>
+          </li>
+          <li>
+            <a class="btn btn btn-outline-primary" href="/users/sign_up">新規登録</a>
+          </li>
         <% end %>
-          <li><a href="/blogs">みんなの投稿</a></li>
+          <li><a class="btn btn btn-outline-primary" href="/blogs">みんなの投稿</a></li>
 
       </ul>
     </div>
