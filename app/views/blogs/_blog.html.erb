@@ -3,8 +3,16 @@
     <div class="content">
       <ul class="upper-part clearfix">
           <li class="title">title：<%= blog.title %></li>
-          <li class="edit"><%= link_to "編集", edit_blog_path(blog) %></li>
-          <li class="delete"><%=link_to "削除", "/blogs/#{blog.id}", method: :delete %></li>
+          <li class="edit">
+            <%= link_to edit_blog_path(blog) do %>
+              <i class="fas fa-user-edit fa-lg"></i>
+            <% end %>
+          </li>
+          <li class="delete">
+            <%=link_to "/blogs/#{blog.id}", method: :delete do %>
+              <i class="fas fa-trash fa-lg"></i>
+          <% end %>
+          </li>
       </ul>
       <h6 class="name"> Written by :<%= blog.user.name %> </h6>
       <div class="text">
