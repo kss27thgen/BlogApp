@@ -18,7 +18,7 @@
       </ul>
       <h6 class="name"> Written by :<%= blog.user.name %> </h6>
       <div class="text">
-        <%= blog.text%>
+        <%= markdown(blog.text)%>
       </div>
     </div>
   <% end %>
