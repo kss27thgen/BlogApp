@@ -1,9 +1,51 @@
-<%= @blog.text%>
+<div class="contents">
+  <div class="content">
+    <ul class="upper-part clearfix">
+        <li class="title">Title：<span><%= @blog.title %><span></li>
+        <li class="delete">
+            <%=link_to blog_path(@blog) do %>
+              <i class="far fa-comments fa-2x"></i>
+            <% end %>
+        </li>
+        <%if current_user == @blog.user %>
+          <li class="edit">
+            <%= link_to edit_blog_path(@blog) do %>
+              <i class="fas fa-user-edit fa-2x"></i>
+            <% end %>
+          </li>
+          <li class="delete">
+            <%=link_to "/blogs/#{@blog.id}", method: :delete do %>
+              <i class="fas fa-trash fa-2x"></i>
+            <% end %>
+          </li>
+        <% end %>
+    </ul>
+    <h6 class="name"> Written by :<%= @blog.user.name %> </h6>
+    <div class="text">
+      <%= markdown(@blog.text)%>
+    </div>
+  </div>
 
+  <div class="comments-container">
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <h5 class="comment-name"><span>by. </span><%= comment.user.name%></h5>
+        <div class="comment-text">
+          <%= comment.text %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
+  <div class="comment-form">
+    <%= bootstrap_form_for [@comment,@blog] do |f| %>
+      <div class="form">
+        <%= f.text_area :text, placeholder:"コメントを入力", :cols => 40, :rows => 5 %>
+      </div>
+      <div class="send-bottum">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-
-
-<% @comments.each do |comment| %>
-  <%= comment.text %>
-<% end %>

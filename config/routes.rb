@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'comments/create'
-
   devise_for :users
   root "home#top"
 
-  resources :blogs
+  resources :blogs do
+    resources :comment,only:[:creat]
+  end
   resources :users,only:[:show]
 end
