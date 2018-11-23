@@ -1,5 +1,4 @@
 <div class="contents">
-  <% @blogs.each do |blog|%>
     <div class="content">
       <ul class="upper-part clearfix">
           <li class="title">Title：<span><%= blog.title %><span></li>
@@ -21,5 +20,4 @@
         <%= markdown(blog.text)%>
       </div>
     </div>
-  <% end %>
 </div>
