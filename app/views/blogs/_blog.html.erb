@@ -2,6 +2,11 @@
     <div class="content">
       <ul class="upper-part clearfix">
           <li class="title">Title：<span><%= blog.title %><span></li>
+          <li class="delete">
+              <%=link_to blog_path(blog) do %>
+                <i class="far fa-comments fa-lg"></i>
+              <% end %>
+          </li>
           <%if current_user == blog.user %>
             <li class="edit">
               <%= link_to edit_blog_path(blog) do %>
@@ -11,7 +16,7 @@
             <li class="delete">
               <%=link_to "/blogs/#{blog.id}", method: :delete do %>
                 <i class="fas fa-trash fa-lg"></i>
-            <% end %>
+              <% end %>
             </li>
           <% end %>
       </ul>

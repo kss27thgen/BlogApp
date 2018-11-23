@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181114031755) do
+ActiveRecord::Schema.define(version: 20181123121031) do
 
   create_table "blogs", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -20,6 +20,30 @@ ActiveRecord::Schema.define(version: 20181114031755) do
     t.datetime "updated_at"
     t.text     "title",      limit: 65535
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "text",       limit: 65535, null: false
+    t.integer  "user_id",    limit: 4
+    t.integer  "blog_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["blog_id"], name: "fk_rails_b9ae98a823", using: :btree
+  add_index "comments", ["user_id"], name: "fk_rails_03de2dc08c", using: :btree
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followable_id",   limit: 4,                   null: false
+    t.string   "followable_type", limit: 255,                 null: false
+    t.integer  "follower_id",     limit: 4,                   null: false
+    t.string   "follower_type",   limit: 255,                 null: false
+    t.boolean  "blocked",                     default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -35,4 +59,6 @@ ActiveRecord::Schema.define(version: 20181114031755) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "comments", "blogs"
+  add_foreign_key "comments", "users"
 end

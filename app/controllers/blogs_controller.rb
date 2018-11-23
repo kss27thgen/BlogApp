@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @comments = @blog.comments.includes(:user)
   end
 
   def edit
