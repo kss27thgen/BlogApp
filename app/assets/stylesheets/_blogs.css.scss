@@ -37,11 +37,12 @@ h1, h2, h3, h4, h5, h6, p, body {
         padding-right: 9px;
       }
       .title {
+        font-size:23px;
         font-weight: bold;
         color: red;
         margin-right: 15px;
         span{
-          font-size: 19px;
+          font-size: 30px;
         }
       }
       .edit{
@@ -50,6 +51,7 @@ h1, h2, h3, h4, h5, h6, p, body {
       }
     }
     .name{
+      font-size:15px;
       padding-left:15px;
       margin: 0;
     }

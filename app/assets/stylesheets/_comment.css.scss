@@ -1,0 +1,15 @@
+.comments-container{
+  .comment{
+    border: dashed black 1px;
+    margin-bottom:30px;
+    .comment-name{
+      font-size: 25px;
+      font-weight: bold;
+      color: orange;
+    }
+    .comment-text{
+      font-size: 22px;
+    }
+  }
+
+}
