@@ -1,28 +1,28 @@
 <div class="contents">
-    <div class="content">
-      <ul class="upper-part clearfix">
-          <li class="title">Title：<span><%= blog.title %><span></li>
-          <li class="delete">
-              <%=link_to blog_path(blog) do %>
-                <i class="far fa-comments fa-2x"></i>
-              <% end %>
+  <div class="content">
+    <ul class="upper-part clearfix">
+        <li class="title">Title：<span><%= blog.title %><span></li>
+        <li class="delete">
+            <%=link_to blog_path(blog) do %>
+              <i class="far fa-comments fa-2x"></i>
+            <% end %>
+        </li>
+        <%if current_user == blog.user %>
+          <li class="edit">
+            <%= link_to edit_blog_path(blog) do %>
+              <i class="fas fa-user-edit fa-2x"></i>
+            <% end %>
           </li>
-          <%if current_user == blog.user %>
-            <li class="edit">
-              <%= link_to edit_blog_path(blog) do %>
-                <i class="fas fa-user-edit fa-2x"></i>
-              <% end %>
-            </li>
-            <li class="delete">
-              <%=link_to "/blogs/#{blog.id}", method: :delete do %>
-                <i class="fas fa-trash fa-2x"></i>
-              <% end %>
-            </li>
-          <% end %>
-      </ul>
-      <h6 class="name"> Written by :<%= blog.user.name %> </h6>
-      <div class="text">
-        <%= markdown(blog.text)%>
-      </div>
+          <li class="delete">
+            <%=link_to "/blogs/#{blog.id}", method: :delete do %>
+              <i class="fas fa-trash fa-2x"></i>
+            <% end %>
+          </li>
+        <% end %>
+    </ul>
+    <h6 class="name"> Written by :<%= blog.user.name %> </h6>
+    <div class="text">
+      <%= markdown(blog.text)%>
     </div>
+  </div>
 </div>
