@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root "home#top"
 
   resources :blogs do
-    resources :comment,only:[:creat]
+    resources :comments,only:[:create]
   end
   resources :users,only:[:show]
 end
+

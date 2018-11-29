@@ -1,9 +1,21 @@
 .index-wrapper{
   h4{
-    color: red;
+    color: pink;
     padding: 50px 0 0 100px;
     font-style: oblique;
+    font-weight: bold;
+    font-size: 70px;
   }
   .content{
   }
 }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
