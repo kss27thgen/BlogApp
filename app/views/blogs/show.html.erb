@@ -31,7 +31,9 @@
   <div class="comments-container">
     <% @comments.each do |comment| %>
       <div class="comment">
-        <h5 class="comment-name"><span>by. </span><%= comment.user.name%></h5>
+        <h5 class="comment-name">
+          <span>by. </span><%= comment.user.name %>
+        </h5>
         <div class="comment-text">
           <%= comment.text %>
         </div>
@@ -40,7 +42,7 @@
   </div>
 
   <div class="comment-form">
-    <%= bootstrap_form_for [@comment,@blog] do |f| %>
+    <%= bootstrap_form_for [@blog, @comment] do |f| %>
       <div class="form">
         <%= f.text_area :text, placeholder:"コメントを入力", :cols => 40, :rows => 5 %>
       </div>
