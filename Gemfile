@@ -53,4 +53,7 @@ gem 'rouge'
 gem 'gmaps4rails'
 gem 'geo_pattern'
 gem 'bootstrap_form'
-
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'kaminari'
+gem 'webpacker', github: 'rails/webpacker'
