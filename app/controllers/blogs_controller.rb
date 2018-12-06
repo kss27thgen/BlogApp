@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only:[:destroy,:edit,:update,:show]
 
   def index
-    @blogs = Blog.order('created_at desc')
+    @blogs = Blog.order('created_at desc').page(params[:page]).per(5)
   end
 
   def new
