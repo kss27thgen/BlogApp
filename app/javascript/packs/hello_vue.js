@@ -5,18 +5,18 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue'
-import App from '../app.vue'
+// import Vue from 'vue'
+// import App from '../app.vue'
 
-document.addEventListener('DOMContentLoaded', () => {
-  const el = document.body.appendChild(document.createElement('hello'))
-  const app = new Vue({
-    el,
-    render: h => h(App)
-  })
+// document.addEventListener('DOMContentLoaded', () => {
+//   const el = document.body.appendChild(document.createElement('hello'))
+//   const app = new Vue({
+//     el,
+//     render: h => h(App)
+//   })
 
-  console.log(app)
-})
+//   console.log(app)
+// })
 
 
 // The above code uses Vue without the compiler, which means you cannot
@@ -33,18 +33,55 @@ document.addEventListener('DOMContentLoaded', () => {
 // </div>
 
 
-// import Vue from 'vue/dist/vue.esm'
-// import App from '../app.vue'
-//
-// document.addEventListener('DOMContentLoaded', () => {
-//   const app = new Vue({
-//     el: '#hello',
-//     data: {
-//       message: "Can you say hello?"
-//     },
-//     components: { App }
-//   })
-// })
+import Vue from 'vue/dist/vue.esm'
+import App from '../app.vue'
+
+document.addEventListener('DOMContentLoaded', () => {
+  var app = new Vue({
+    el: '#app',
+    data: {
+      newItem: '',
+      todos: [{
+        title: 'task 1',
+        isDone: false
+      },{
+        title: 'task 2',
+        isDone: false
+      },{
+        title: 'task 3',
+        isDone: true
+      }]
+    },
+    watch: {
+      todos: function(){
+        localStorage.setItem('todos', JSON.stringify(this.todos));
+      }
+    },
+    methods: {
+      addItem: function() {
+        var item = {
+          title: this.newItem,
+          isDone: false
+        }
+        this.todos.push(item);
+        this.newItem = '';
+      },
+      deleteItem: function(index) {
+        if (confirm('Are you sure?')){
+          this.todos.splice(index, 1);
+        }
+      }
+    },
+    // computed: {
+    //   remaining: function(){
+    //     var items = this.todos.filter(function(todo){
+    //       return !todo.isDone;
+    //     });
+    //     return !items.length;
+    //   }
+    // }
+  })
+})
 //
 //
 //

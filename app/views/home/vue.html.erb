@@ -1,1 +1,23 @@
+<div id="app">
+  <h1>
+    MY TODOs
+  </h1>
+  <ul>
+    <li v-for="(todo, index) in todos">
+      <input type="checkbox" v-model="todo.isDone">
+      {{ todo.title }}
+      <span @click="deleteItem(index)" class="command">[x]</span>
+    </li>
+    <li v-show="!todos.length">NOTHING TO DO</li>
+  </ul>
+  <form @submit.prevent="addItem">
+    <input type="text" v-model="newItem">
+    <input type="submit" value="Add">
+
+</div>
+
+
+
+
+  <%= javascript_pack_tag 'hello_vue'%>
 
