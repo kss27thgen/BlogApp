@@ -1,0 +1,27 @@
+#app {
+  width: 300px;
+  margin: auto;
+  h1 {
+    font-size:20px;
+    border-bottom: 1px solid #bbb;
+    padding: 16px 0;
+  }
+  ul{
+    li {
+      line-height: 1.5;
+      font-size: 15px;
+      .command {
+        font-size: 12px;
+        cursor: pointer;
+        color: #08c;
+      }
+    }
+  }
+  form {
+    input[type="text"] {
+      font-size: 18px;
+    }
+  }
+}
+
+

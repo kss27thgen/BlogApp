@@ -3,6 +3,19 @@
     映るかな
   %P total is #{5*3}
   =Time.now
+
   .name
     - rena = "lov you"
     = rena
+
+  .each-ids
+    - @each_ids.each do |each_id|
+      = each_id
+
+  .map-ids
+    - @a7times_ids.each do |a7times_id|
+      = a7times_id
+
+  .map-names
+    - @map¥names.each do |map¥name|
+      .map-name= map¥name
